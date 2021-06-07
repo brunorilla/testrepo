@@ -50,7 +50,7 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
-
+*.zip
 # Yarn Integrity file
 .yarn-integrity
 
@@ -62,3 +62,5 @@ typings/
 
 ./idea
 package-lock.json
+
+.zip
