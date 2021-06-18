@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "actualizarprods",
+  "version": "1.0.0",
+  "description": "Actualizar Prods use case",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunorilla/testrepo.git"
+  },
+  "author": "branasrallas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunorilla/testrepo/issues"
+  },
+  "homepage": "https://github.com/brunorilla/testrepo#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.9"
+  }
+}
