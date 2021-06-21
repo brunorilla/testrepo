@@ -10,7 +10,7 @@ const dao = new createDaoProducts();
 router.get('/', (req, res, next) => {
     dao.getProducts().then(data => {
         try {
-            new CU_EscribirProducto().writeAllResults(data).then(value=>{
+            new CU_EscribirProducto().writeAllResults(data).then(value => {
                 res.status(200).send("Toda la colección exportada en un archivo correctamente");
             });
         } catch (e) {
@@ -31,10 +31,13 @@ router.get('/name/:name', (req, res, next) => {
     })
 });
 
-router.put('/update/:file',async (req, res, next) => {
+router.put('/update/:file', async (req, res, next) => {
     console.log("put call");
     let record = await new CU_ActualizarProductos().generateRecord(`./compartidos/input/${req.params.file}.json`);
-        dao.updateRecordsFromFile(record).then(value => console.log(value));
+    dao.updateRecordsFromFile(record).then(value => {
+        console.log(value)
+        res.status(200).send("Archivo actualizado correctamente.");
+    });
 
 })
 
