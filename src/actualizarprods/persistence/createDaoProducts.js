@@ -1,5 +1,6 @@
 import {client} from "./dbdriver.js";
 import Product from "../models/Product.js";
+
 class createDaoProducts {
     constructor() {
         this.collection = "prods";
@@ -8,22 +9,24 @@ class createDaoProducts {
     }
 
     async getProduct(id) {
-        console.log("ID IS "+ id);
+        console.log("ID IS " + id);
         const collection = await this.getCollection();
-        const result = await collection.findOne({index:id});
+        let query = {name: id};
+        const result = await collection.find(query);
+        return result;
     }
 
-    async postProducts(obj){
+    async postProducts(obj) {
 
     }
 
-    async getProducts(){
+    async getProducts() {
         const collection = await this.getCollection();
         const result = await collection.findOne({});
         return result;
     }
 
-    async getCollection(){
+    async getCollection() {
         const cli = await this.client;
         const db = await cli.db(this.dbname);
         const collection = await db.collection(this.collection);
