@@ -2,6 +2,7 @@ import express from "express";
 import createDaoProducts from "../persistence/createDaoProducts.js";
 import Product from "../models/Product.js";
 import CU_EscribirProducto from "../business/CU_EscribirProducto.js";
+import CU_ActualizarProductos from "../business/CU_ActualizarProductos.js";
 
 const router = express.Router();
 const dao = new createDaoProducts();
@@ -29,6 +30,13 @@ router.get('/name/:name', (req, res, next) => {
         })
     })
 });
+
+router.put('/update/:file',async (req, res, next) => {
+    console.log("put call");
+    let record = await new CU_ActualizarProductos().generateRecord(`./compartidos/input/${req.params.file}.json`);
+        dao.updateRecordsFromFile(record).then(value => console.log(value));
+
+})
 
 
 router.post('/', async (request, response, next) => {

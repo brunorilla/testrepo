@@ -11,7 +11,7 @@ class CU_EscribirProducto {
     async writeAllResults(data){
         let content = JSON.stringify(data);
         let filename = this.createDate();
-        return fs.writeFile(`./compartidos/output/${filename}.txt`, content, {flag: 'a+'}, err => {
+        return fs.writeFile(`./compartidos/output/${filename}.json`, content, {flag: 'a+'}, err => {
             if (err) throw err;
         });
     }
@@ -19,7 +19,7 @@ class CU_EscribirProducto {
     writeFile(content){
         content = JSON.stringify(content);
         let filename = this.createDate();
-        fs.writeFile(`./compartidos/output/${filename}.txt`, content,{flag: 'a+'}, err => {
+        fs.writeFile(`./compartidos/output/${filename}.json`, content,{flag: 'a+'}, err => {
             if (err) console.error(err)
         })
     }
