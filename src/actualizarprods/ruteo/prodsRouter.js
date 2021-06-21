@@ -10,6 +10,7 @@ router.get('/', (req,res,next)=>{
 
 
 router.get('/:id', (req, res,next) => {
+    /*
     const dao = new createDaoProducts();
     dao.getProducts().then(value => {
 
@@ -20,6 +21,14 @@ router.get('/:id', (req, res,next) => {
             let prod = new Product(r.index, r.name, r.price);
             return res.json(prod);
         },5000)
+    }) */
+    const dao = new createDaoProducts();
+    dao.getProduct(req.params.id).then(value => {
+
+        console.dir(value);
+        /*.admin().listDatabases().then(value =>{
+        value.databases.forEach(db => console.log(` - ${db.name}`))
+    });*/
     })
 });
 
