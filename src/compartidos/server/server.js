@@ -1,11 +1,10 @@
 import express from 'express';
-import ProdsRouter from '../../productos/ruteo/prodsRouter.js'
+import ProdsRouter from '../../actualizarprods/ruteo/prodsRouter.js'
 
 function createServer() {
     const app = express();
     app.use(express.json());
-    console.dir(ProdsRouter);
-    app.use('/productos', ProdsRouter);
+    app.use('/actualizar', ProdsRouter);
 
 
     let server = null;

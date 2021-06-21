@@ -1,4 +1,5 @@
 import {client} from "./dbdriver.js";
+import Product from "../models/Product.js";
 class createDaoProducts {
     constructor() {
         this.collection = "prods";
@@ -7,9 +8,13 @@ class createDaoProducts {
     }
 
     async getProduct(id) {
+        console.log("ID IS "+ id);
         const collection = await this.getCollection();
         const result = await collection.findOne({index:id});
-        return result;
+    }
+
+    async postProducts(obj){
+
     }
 
     async getProducts(){
