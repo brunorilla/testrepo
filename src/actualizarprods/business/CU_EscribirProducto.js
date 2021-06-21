@@ -7,10 +7,13 @@ class CU_EscribirProducto {
         let mils = Date.now();
         let date = new Date(mils);
         return date.toISOString().slice(0,19).replace(/:/g, "-");
-
     }
-    writeAllResults(content){
-
+    async writeAllResults(data){
+        let content = JSON.stringify(data);
+        let filename = this.createDate();
+        return fs.writeFile(`./compartidos/output/${filename}.txt`, content, {flag: 'a+'}, err => {
+            if (err) throw err;
+        });
     }
 
     writeFile(content){

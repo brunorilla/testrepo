@@ -22,7 +22,7 @@ class createDaoProducts {
 
     async getProducts() {
         const collection = await this.getCollection();
-        const result = await collection.findOne({});
+        const result = await collection.find().toArray();
         return result;
     }
 
